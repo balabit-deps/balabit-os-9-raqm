@@ -1,0 +1,16 @@
+Tests: build
+Depends: libraqm-dev, pkg-config, build-essential
+
+# build-needed is required to (easily) configure everything under tests, but
+# does *not* guarantee access to the build dependencies during the test run, so
+# we duplicate much of Build-Depends here
+Tests: run-suite
+Restrictions: build-needed
+Depends:
+ build-essential,
+ pkg-config,
+ libraqm-dev,
+ libfreetype6-dev (>= 2.4.2),
+ libfribidi-dev,
+ libharfbuzz-dev,
+ python3
